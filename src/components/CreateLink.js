@@ -1,3 +1,6 @@
+
+// https://www.apollographql.com/docs/react/data/mutations/
+
 import React, { Component } from 'react'
 import { Mutation } from 'react-apollo'
 import gql from 'graphql-tag'
@@ -39,7 +42,11 @@ class CreateLink extends Component {
                         placeholder="The URL for the link"
                     />
                 </div>
-                <Mutation mutation={POST_MUTATION} variables={{ description, url }}>
+                <Mutation
+                    mutation={POST_MUTATION}
+                    variables={{ description, url }}
+                    onCompleted={() => this.props.history.push('/')}
+                >
                     {postMutation => <button onClick={postMutation}>Submit</button>}
                 </Mutation>
             </div>
