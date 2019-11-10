@@ -2,6 +2,8 @@ import React from 'react';
 import '../styles/App.css';
 import LinkList from './LinkList'
 import CreateLink from './CreateLink'
+import { Switch, Route } from 'react-router-dom'
+import Header from './Header'
 
 /*
 
@@ -16,8 +18,21 @@ graphql contains Facebook’s reference implementation of GraphQL - Apollo Clien
 
 */
 
-function App() {
-  return <CreateLink />
+class App extends React.Component {
+  render() {
+    return (
+      <div className="center w85">
+        <Header />
+        <div className="ph3 pv1 background-gray">
+          <Switch>
+            <Route exact path="/" component={LinkList} />
+            <Route exact path="/create" component={CreateLink} />
+          </Switch>
+        </div>
+      </div>
+    )
+  }
 }
 
 export default App;
+// You  need to wrap the App with BrowserRouter so that all child components of App will get access to the routing functionality.
