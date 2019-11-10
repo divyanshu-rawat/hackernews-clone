@@ -1,6 +1,11 @@
 # This file contains the GraphQL schema which defines all the operations (queries, mutations and subscriptions) you can send from your frontend app.
 
 scalar DateTime
+
+
+# This schema allows for the following operations:
+# feed: Retrieves all links from the backend, note that this query also allows for filter, sorting and pagination arguments.
+
 type Query {
   info: String!
   feed(filter: String, skip: Int, first: Int, orderBy: LinkOrderByInput): Feed!
@@ -20,12 +25,24 @@ type Feed {
   count: Int!
 }
 
+# Mutations.
+
+# post: Allows authenticated users to create a new link.
+# signup: Create an account for a new user.
+# login: Login an existing user.
+# vote: Allows authenticated users to vote for an existing link.
+
 type Mutation {
   post(url: String!, description: String!): Link!
   signup(email: String!, password: String!, name: String!): AuthPayload
   login(email: String!, password: String!): AuthPayload
   vote(linkId: ID!): Vote!
 }
+
+# Subscriptions:
+
+# newLink: Receive realtime updates when a new link is created.
+# newVote: Receive realtime updates when a vote was submitted.
 
 type Subscription {
   newLink: Link

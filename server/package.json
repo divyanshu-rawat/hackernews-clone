@@ -14,5 +14,8 @@
   },
   "devDependencies": {
     "prisma": "^1.31.0"
+  },
+  "resolutions": {
+    "graphql": "14.4.2"
   }
 }
