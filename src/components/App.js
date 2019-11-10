@@ -1,6 +1,7 @@
 import React from 'react';
 import '../styles/App.css';
-
+import LinkList from './LinkList'
+import CreateLink from './CreateLink'
 
 /*
 
@@ -16,11 +17,7 @@ graphql contains Facebook’s reference implementation of GraphQL - Apollo Clien
 */
 
 function App() {
-  return (
-    <div className="App">
-      <p>Hey!</p>
-    </div>
-  );
+  return <CreateLink />
 }
 
 export default App;
