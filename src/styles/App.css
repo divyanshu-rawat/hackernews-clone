@@ -24,3 +24,7 @@
 .link {
   padding: 1em;
 }
+
+.vote-btn {
+  cursor: pointer;
+}
