@@ -27,14 +27,6 @@ class Login extends Component {
         name: '',
     }
 
-    _confirm = async data => {
-        // Note: Mutation returned data relies on GraphQL mutation definition, 
-        // that’s why we need to get the token depending on which mutation is triggered.
-        const { token } = this.state.login ? data.login : data.signup
-        this._saveUserData(token)
-        this.props.history.push(`/`)
-    }
-
     render() {
         const { login, email, password, name } = this.state
         return (
@@ -87,8 +79,12 @@ class Login extends Component {
         )
     }
 
-    _confirm = async () => {
-        // ... you'll implement this 🔜
+    _confirm = async data => {
+        // Note: Mutation returned data relies on GraphQL mutation definition, 
+        // that’s why we need to get the token depending on which mutation is triggered.
+        const { token } = this.state.login ? data.login : data.signup
+        this._saveUserData(token)
+        this.props.history.push(`/`)
     }
 
     _saveUserData = token => {
